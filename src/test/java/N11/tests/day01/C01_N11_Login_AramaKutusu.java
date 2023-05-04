@@ -19,7 +19,7 @@ public class C01_N11_Login_AramaKutusu {
     /*
     "https://www.n11.com/" adresine git
     arama kutusuna "fındık kreması" kelimesi girip aratin
-listelenen urunlerde "Fındık Kreması" oldugunu dogrula
+    listelenen urunlerde "Fındık Kreması" oldugunu dogrula
 
      */
     @Test

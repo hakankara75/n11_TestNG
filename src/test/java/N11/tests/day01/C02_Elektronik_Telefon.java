@@ -8,15 +8,23 @@ import N11.utilities.ReusableMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.v85.network.model.DataReceived;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
-public class C02 {
-
+public class C02_Elektronik_Telefon {
+/*
+         "https://www.n11.com/" adresine git
+        elektronik menusu ustune git
+        telefon tikla
+        samsung tikla
+        cikan arama sonucu al
+        soldaki menude de "Samsung" checkboxinin secili oldugunu dogrula
+        secimi iptal et
+        arama sonucunun degistigini dogrula
+ */
     @Test
     public void testName() {
 
@@ -30,7 +38,6 @@ public class C02 {
         ReusableMethods.bekle(2);
 
         //elektronik menusu ustune git
-
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         N11_Elektronik n11_elektronik = new N11_Elektronik();
         Actions actions = new Actions(Driver.getDriver());
@@ -54,7 +61,6 @@ public class C02 {
         System.out.println("cikan arama sonucu"+text);
 
         //soldaki menude de "Samsung" checkboxinin secili oldugunu dogrula
-
          element = Driver.getDriver().findElement(By.xpath("(//a[@href='https://www.n11.com/telefon-ve-aksesuarlari?m=Samsung'])[2]"));
         js.executeScript("arguments[0].scrollIntoView();", element);
 
