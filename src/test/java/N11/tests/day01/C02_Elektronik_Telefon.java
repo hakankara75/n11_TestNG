@@ -1,6 +1,6 @@
 package N11.tests.day01;
 
-import N11.pages.N11;
+import N11.pages.N11_Login;
 import N11.pages.N11_Elektronik;
 import N11.utilities.ConfigReader;
 import N11.utilities.Driver;
@@ -31,7 +31,7 @@ public class C02_Elektronik_Telefon {
         // "https://www.n11.com/" adresine git
         Driver.getDriver().get(ConfigReader.getProperty("N11Url"));
 
-        N11 n11 = new N11();
+        N11_Login n11 = new N11_Login();
         n11.tamam.click();
         ReusableMethods.bekle(4);
         n11.dahaSonra.click();

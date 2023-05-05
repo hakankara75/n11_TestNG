@@ -1,11 +1,12 @@
 package N11.tests.day01;
 
-import N11.pages.N11;
+import N11.pages.N11_Login;
 
 import N11.utilities.ConfigReader;
 import N11.utilities.Driver;
 import N11.utilities.ReusableMethods;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -18,17 +19,22 @@ public class C01_N11_Login_AramaKutusu {
 
     /*
     "https://www.n11.com/" adresine git
+    giris yap
     arama kutusuna "fındık kreması" kelimesi girip aratin
     listelenen urunlerde "Fındık Kreması" oldugunu dogrula
 
      */
     @Test
     public void loginTest() {
+        N11_Login n11 = new N11_Login();
         // "https://www.n11.com/" adresine git
         Driver.getDriver().get(ConfigReader.getProperty("N11Url"));
 
+        //giris yap
+        ReusableMethods.girisYap();
+
         //arama kutusuna "fındık kreması" kelimesi girip aratin
-        N11 n11 = new N11();
+
         n11.aramaKutusu.sendKeys("Fındık Kreması", Keys.ENTER);
         ReusableMethods.bekle(2);
 

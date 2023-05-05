@@ -1,7 +1,6 @@
 package N11.tests.day01;
 
-import N11.pages.N11;
-import N11.pages.N11_Elektronik;
+import N11.pages.N11_Login;
 import N11.pages.N11_EvYasam;
 import N11.utilities.ConfigReader;
 import N11.utilities.Driver;
@@ -19,11 +18,7 @@ public class C03_EvYasam {
         // "https://www.n11.com/" adresine git
         Driver.getDriver().get(ConfigReader.getProperty("N11Url"));
 
-        N11 n11 = new N11();
-        n11.tamam.click();
-        ReusableMethods.bekle(4);
-        n11.dahaSonra.click();
-        ReusableMethods.bekle(2);
+        ReusableMethods.uyarilariKapat();
 
         //ev/yasam menusu ustune git
         N11_EvYasam n11EvYasam = new N11_EvYasam();
@@ -31,7 +26,7 @@ public class C03_EvYasam {
         ReusableMethods.bekle(2);
 
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-        WebElement menu = Driver.getDriver().findElement(By.xpath("//span[text()='Ev & Yaşam']"));
+        WebElement menu = Driver.getDriver().findElement(By.xpath("(//a[@href='https://www.n11.com/ev-yasam'])[1]"));
         js.executeScript("arguments[0].scrollIntoView(true);", menu);
 
         //supermarket tikla

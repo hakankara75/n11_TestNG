@@ -1,5 +1,6 @@
 package N11.utilities;
 
+import N11.pages.N11_Login;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
@@ -37,6 +38,31 @@ public class ReusableMethods {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+    //siteye giris yap
+
+    public static void girisYap(){
+        N11_Login n11 = new N11_Login();
+        WebElement girisYapLinki = Driver.getDriver().findElement(By.xpath("//a[@title='Giriş Yap']"));
+        JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
+        executor.executeScript("arguments[0].click();", girisYapLinki);
+
+        n11.emailGiris.sendKeys(ConfigReader.getProperty("email"), Keys.TAB);
+        n11.sifreGiris.sendKeys(ConfigReader.getProperty("password"), Keys.TAB);
+        ReusableMethods.arrowDown();
+
+        girisYapLinki = Driver.getDriver().findElement(By.xpath("//div[@id='loginButton']"));
+        executor = (JavascriptExecutor) Driver.getDriver();
+        executor.executeScript("arguments[0].click();", girisYapLinki);
+    }
+    //uyarilari kapat
+
+    public static void uyarilariKapat(){
+        N11_Login n11 = new N11_Login();
+        n11.tamam.click();
+        ReusableMethods.bekle(4);
+        n11.dahaSonra.click();
+        ReusableMethods.bekle(2);
     }
     //Alert ACCEPT
     public static void alertAccept(){
@@ -119,6 +145,11 @@ public class ReusableMethods {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+    //mause element ustunde bekletilir
+    public static void moveToElement(WebElement webElement){
+        Actions actions=new Actions(Driver.getDriver());
+        actions.moveToElement(webElement).perform();
     }
 
     //bu metot ile herhangi bir webelemente JavascriptExecutor kullanarak tiklayabilirim

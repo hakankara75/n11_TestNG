@@ -5,14 +5,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class N11 {
-    public N11() {
+public class N11_Login {
+    public N11_Login() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
     @FindBy(id = "myLocation-close-info")
     public WebElement tamam;
-    @FindBy(xpath = "(//button[@class='dn-slide-deny-btn'])[1]")
+    @FindBy(id = "//a[@title='Giriş Yap']")
+    public WebElement girisYap;
+       @FindBy(xpath = "(//button[@class='dn-slide-deny-btn'])[1]")
     public WebElement dahaSonra;
     @FindBy(xpath = "//a[@href='https://www.n11.com/elektronik']")
     public WebElement elektronik;
@@ -20,6 +22,8 @@ public class N11 {
     public WebElement emailGiris;
     @FindBy(xpath = "//input[@id='password']")
     public WebElement sifreGiris;
+    @FindBy(xpath = "//div[@id='loginButton']")
+    public WebElement girisButton;
     @FindBy(xpath = "//div[@id='myLocation-close-info']")
     public WebElement uyariKapat;
     @FindBy(xpath = "//div[@class='banner__reject-button']")
