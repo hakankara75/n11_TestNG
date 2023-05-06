@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import javax.lang.model.element.Element;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -63,6 +62,7 @@ public class ReusableMethods {
         ReusableMethods.bekle(4);
         n11.dahaSonra.click();
         ReusableMethods.bekle(2);
+
     }
     //Alert ACCEPT
     public static void alertAccept(){
@@ -160,31 +160,40 @@ public class ReusableMethods {
 
     }
 
+    //elementin ustune JavascriptExecutor ile goturur
     public static void scrollIntoViewByJavaScript(WebElement webElement){
         JavascriptExecutor jse=(JavascriptExecutor) Driver.getDriver();//Casting
         jse.executeScript("arguments[0].scrollIntoView(true);",webElement);
 
     }
 
-    //bu metot ile sayfayi en alta kaydirabilirim
+    //bu metot JavascriptExecutor ile sayfayi en alta kaydirabilirim
     public static void scrollEndByJavaScript(){
                JavascriptExecutor js= (JavascriptExecutor) Driver.getDriver();
         js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
     }
 
-    //bu metot ile sayfayi en yukari kaydirabilirim
+    //bu metot JavascriptExecutor ile sayfayi en yukari kaydirabilirim
     public static void scrollTopByJavaScript(){
         JavascriptExecutor js= (JavascriptExecutor) Driver.getDriver();
         js.executeScript("window.scrollTo(0, -document.body.scrollHeight);");
     }
 
-    public static void scrollToElement(String str) {
+    //bu kod locati alinan elemana kadar sayfayi asagi goturur
+    public static void scrollToElementWithString(String str) {
         WebElement bottom = Driver.getDriver().findElement(By.xpath(str));
         Actions actions = new Actions(Driver.getDriver());
         actions.scrollToElement(bottom).perform();
-        //bu kod locati alinan elemana kadar sayfayi asagi goturur
+
     }
 
+    //bu kod locati alinan elemana kadar sayfayi asagi goturur
+    public static void scrollToElementWithWebElement(WebElement element) {
+        WebElement bottom =element;
+        Actions actions = new Actions(Driver.getDriver());
+        actions.scrollToElement(bottom).perform();
+
+    }
     public static void threadSleep(int sleep) {
         try {
             Thread.sleep(sleep * 1000);
@@ -247,6 +256,7 @@ public class ReusableMethods {
         assertTrue(a.isDisplayed());
     }
 
+    //search boxa sendkeys gonderir
     public static void typeWithJavaScript(WebElement webElement, String str){
         JavascriptExecutor js= (JavascriptExecutor) Driver.getDriver();
         js.executeScript("arguments[0].setAttribute('value', '"+str+"')", webElement);

@@ -6,7 +6,6 @@ import N11.utilities.ConfigReader;
 import N11.utilities.Driver;
 import N11.utilities.ReusableMethods;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -39,7 +38,7 @@ public class C01_N11_Login_AramaKutusu {
         ReusableMethods.bekle(2);
 
         //listelenen urunlerde "Fındık Kreması" oldugunu dogrula
-        ReusableMethods.scrollToElement("//label[@class='feed-question']");
+        ReusableMethods.scrollToElementWithString("//label[@class='feed-question']");
         ReusableMethods.bekle(5);
         ReusableMethods.scrollTopByJavaScript();
         List<WebElement> findikKremasi = Driver.getDriver().findElements(By.xpath("//h3[@class='productName']"));
@@ -47,10 +46,10 @@ public class C01_N11_Login_AramaKutusu {
         int sayac=1;
        do {
                          ReusableMethods.bekle(2);
-               ReusableMethods.scrollToElement("(//a[@class='plink'])[" + sayac + "]");
+               ReusableMethods.scrollToElementWithString("(//a[@class='plink'])[" + sayac + "]");
                if (sayac>140){
                    ReusableMethods.bekle(7);
-                   ReusableMethods.scrollToElement("(//a[@class='plink'])[" + sayac + "]");
+                   ReusableMethods.scrollToElementWithString("(//a[@class='plink'])[" + sayac + "]");
                }
            sayac++;
        }while (sayac<listSize);
