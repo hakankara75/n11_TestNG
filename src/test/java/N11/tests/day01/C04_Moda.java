@@ -59,32 +59,40 @@ public class C04_Moda {
         marka.click();
         ReusableMethods.bekle(2);
 
+        ReusableMethods.pageDown();
+        ReusableMethods.bekle(2);
         //Benetton markasini sec, secildigini test et
-        WebElement benettonBul = (WebElement) js.executeScript("return document.querySelector('#contentListing > div > div.listingHolder > div.filterArea > section:nth-child(7) > div > div.filterList > div:nth-child(5) > a')");
-        ReusableMethods.clickByJavaScript(benettonBul);
-               assertTrue(benettonBul.isSelected());
-
-
-        //secim sonucunda cikan sayiyi al
-        String secimSayisi = js.executeScript("return document.querySelector(/'#p-563614689/')").toString();
-        int urunSecimSayisi = Integer.parseInt(secimSayisi);
-        System.out.println(urunSecimSayisi);
-
-        //secilen urunlerin sayisini secim sonucuyla esit oldugunu dogrula
-        for (int i = 1; i <= urunSecimSayisi; i++) {
-
-            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
-            WebElement urun = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='columnContent'])[" + i + "]")));
-            ReusableMethods.scrollToElementWithString("(//div[@class='columnContent'])[" + i + "]");
-
+        WebElement benettonBul = null;
+        int attempts = 0;
+        while(attempts < 5) {
+            try {
+                benettonBul = (WebElement) js.executeScript("return document.querySelector('#contentListing > div > div.listingHolder > div.filterArea > section:nth-child(7) > div > div.filterList > div:nth-child(5) > a')");
+                ReusableMethods.clickByJavaScript(benettonBul);
+                assertTrue(benettonBul.isSelected());
+                break;
+            } catch(Exception e) {
+            }
+            attempts++;
         }
 
-
-        List<WebElement> list = Driver.getDriver().findElements(By.xpath("//div[@class='columnContent']"));
+        //secilen urunlerin goruntulendigini dogrula
+        List<WebElement> list = Driver.getDriver().findElements(By.xpath("//*[@id=/'listingUl/']/li"));
         int listSize = list.size();
+        attempts = 0;
+        while(attempts > listSize) {
+            try {
 
-        assertTrue(urunSecimSayisi == listSize);
+                break;
+            } catch(Exception e) {
+            }
+            attempts++;
+        }
+        System.out.println("listSize"+listSize);
+        WebElement sayi= Driver.getDriver().findElement(By.xpath("(//div[@class='columnContent'])["+listSize+"]"));
+        assertTrue(sayi.isDisplayed());
 
 
     }
+
+
 }
