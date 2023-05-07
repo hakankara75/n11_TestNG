@@ -76,8 +76,8 @@ public class C04_Moda {
         }
 
         //secilen urunlerin goruntulendigini dogrula
-        List<WebElement> list = Driver.getDriver().findElements(By.xpath("//*[@id=/'listingUl/']/li"));
-        int listSize = list.size();
+       WebElement list = (WebElement) js.executeScript("return document.querySelector(/'#listingUl/')");
+                int listSize = Integer.parseInt(list.getText());
         attempts = 0;
         while(attempts > listSize) {
             try {

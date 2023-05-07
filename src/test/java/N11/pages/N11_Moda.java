@@ -1,9 +1,14 @@
 package N11.pages;
 
+import N11.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class N11_Moda {
+    public N11_Moda() {
+        PageFactory.initElements(Driver.getDriver(), this);
+    }
     @FindBy(xpath = "//a[@title='Ayakkabı & Çanta']//img")
     public WebElement ayakkabiCanta;
     @FindBy(xpath = "//section[@class='filter filterSearch']")
