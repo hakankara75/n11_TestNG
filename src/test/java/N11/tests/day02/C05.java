@@ -15,8 +15,19 @@ import java.util.List;
 import static org.testng.Assert.assertTrue;
 
 public class C05 {
+    /*
+        "https://www.n11.com/" adresine git
+        giris yap
+        mucevher menusu ustune git
+        gozluk menusune tikla
+        akilli siralama menusunu ac
+        azalan fiyati sec
+        fiyat bilgilerini al. Fiyatlarin azaldigini dogrula/*
+
+         */
     @Test
     public void testName() {
+
         // "https://www.n11.com/" adresine git
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         N11_Mucevher n11_Mucevher = new N11_Mucevher();
@@ -41,17 +52,24 @@ public class C05 {
         n11_Mucevher.azalanFiyat.click();
 
         //fiyat bilgilerini al. Fiyatlarin azaldigini dogrula
-        List<WebElement> fiyatlar=Driver.getDriver().findElements(By.xpath("//div[@class='priceContainer ']"));
-      String first="";
-      int sec=0;
-       for (WebElement f : fiyatlar){
-           first= f.getText().replaceAll(" ", "").replaceAll(".", "");
-           System.out.println(first);
-//           if(first==sec){
-//               continue;
-//           }
-//                   assertTrue(first>sec);
-       }
+        List<WebElement> fiyatlar = Driver.getDriver().findElements(By.xpath("//div[@class='priceContainer ']"));
+        int first = 0;
+        int sec = 0;
+        System.out.println("liste elemanlari:" + fiyatlar.size());
+        for (WebElement f : fiyatlar) {
+            try {
+                String fText = f.getText().replaceAll("TL", "").replaceAll(" ", "").replaceAll(",", "").replaceAll("\\.", "");
+
+                first = fText.isEmpty() ? 0 : Integer.parseInt(fText);
+            } catch (Exception e) {
+
+            }
+            System.out.println(first);
+            if (first == sec) {
+                continue;
+            }
+            assertTrue(first > sec);
+        }
 
         Driver.closeDriver();
     }
