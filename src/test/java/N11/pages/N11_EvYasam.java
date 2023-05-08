@@ -8,8 +8,7 @@ public class N11_EvYasam {
     public WebElement evYasam;
     @FindBy(xpath = "//a[@href='https://www.n11.com/supermarket']")
     public WebElement supermarket;
-    @FindBy(xpath = "//a[@href='https://www.n11.com/supermarket']")
-    public WebElement ffffffff;
+
 
 
 

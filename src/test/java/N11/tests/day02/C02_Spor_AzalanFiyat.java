@@ -13,7 +13,16 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 import static org.testng.Assert.assertTrue;
+/*
+ "https://www.n11.com/" adresine git
+giris yap
+spor menusu ustune git
+spor ayakkabi tikla
+akilli siralama menusunu ac
+artan fiyat menusunu sec
+fiyat bilgilerini al. Fiyatlarin arttigini dogrula
 
+ */
 public class C02_Spor_AzalanFiyat {
     @Test
     public void testName() {
@@ -29,7 +38,6 @@ public class C02_Spor_AzalanFiyat {
         ReusableMethods.girisYap();
         ReusableMethods.bekle(2);
         n11Login.dahaSonra.click();
-
 
         //spor menusu ustune git
         try {
@@ -59,7 +67,9 @@ public class C02_Spor_AzalanFiyat {
         int sayac=0;
         System.out.println("liste elemanlari:" + fiyatlar.size());
         for (WebElement f : fiyatlar) {
-
+if (sayac==6){
+    break;
+}
             try {  ReusableMethods.scrollToElementWithWebElement(f);
                 String fText = f.getText().replaceAll("TL", "").replaceAll(" ", "").replaceAll(",", "").replaceAll("\\.", "");
                 first = fText.isEmpty() ? 0 : Double.parseDouble(fText);
@@ -75,6 +85,7 @@ public class C02_Spor_AzalanFiyat {
             } catch (Exception e) {
 
             }
+            sayac++;
             sec = first;
         }
 
