@@ -1,6 +1,5 @@
 package N11.tests.day02;
 
-import N11.pages.N11_Moda;
 import N11.pages.N11_Mucevher;
 import N11.utilities.ConfigReader;
 import N11.utilities.Driver;
@@ -9,12 +8,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
+import org.testng.IRetryAnalyzer;
 
 import java.util.List;
 
 import static org.testng.Assert.assertTrue;
 
-public class C05 {
+public class C01_Mucevher_AzalanFiyat<retryAnalyzer> {
     /*
         "https://www.n11.com/" adresine git
         giris yap
@@ -25,8 +25,8 @@ public class C05 {
         fiyat bilgilerini al. Fiyatlarin azaldigini dogrula/*
 
          */
-    @Test
-    public void testName() {
+    @Test(retryAnalyzer = N11.utilities.Listeners.class)
+    public void testName(){
 
         // "https://www.n11.com/" adresine git
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
@@ -53,14 +53,14 @@ public class C05 {
 
         //fiyat bilgilerini al. Fiyatlarin azaldigini dogrula
         List<WebElement> fiyatlar = Driver.getDriver().findElements(By.xpath("//div[@class='priceContainer ']"));
-        int first = 0;
-        int sec = 0;
+        double first = 0;
+        double sec = 111111111;
         System.out.println("liste elemanlari:" + fiyatlar.size());
         for (WebElement f : fiyatlar) {
             try {
                 String fText = f.getText().replaceAll("TL", "").replaceAll(" ", "").replaceAll(",", "").replaceAll("\\.", "");
 
-                first = fText.isEmpty() ? 0 : Integer.parseInt(fText);
+                first = fText.isEmpty() ? 0 : Double.parseDouble(fText);
             } catch (Exception e) {
 
             }
@@ -68,7 +68,8 @@ public class C05 {
             if (first == sec) {
                 continue;
             }
-            assertTrue(first > sec);
+            assertTrue(first < sec);
+            sec=first;
         }
 
         Driver.closeDriver();

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="N11.utilities.Listeners"></listener>
+    </listeners>
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/Hakn Batirhan.DESKTOP-KA8SOKR/IdeaProjects/N11/src/test/java/N11/tests/day02/C01_Mucevher_AzalanFiyat.java">
+        <classes>
+            <class name="N11.tests.day02.C01_Mucevher_AzalanFiyat">
+                <methods>
+                    <include name="testName"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/Hakan Batirhan.DESKTOP-KA8SOKR/IdeaProjects/N11/src/test/java/N11/tests/day02/C02_Spor_AzalanFiyat.java">
+        <classes>
+            <class name="N11.tests.day02.C02_Spor_AzalanFiyat">
+                <methods>
+                    <include name="succesTest"/>
+                    <include name="failTest"/>
+                    <include name="scipTest"/>
+                    <include name="failTestTechpro"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

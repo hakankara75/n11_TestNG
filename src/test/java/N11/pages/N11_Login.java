@@ -14,7 +14,7 @@ public class N11_Login {
     public WebElement tamam;
     @FindBy(id = "//a[@title='Giriş Yap']")
     public WebElement girisYap;
-       @FindBy(xpath = "(//button[@class='dn-slide-deny-btn'])[1]")
+       @FindBy(xpath = "(//button[text()='Daha Sonra'])[1]")
     public WebElement dahaSonra;
     @FindBy(xpath = "//a[@href='https://www.n11.com/elektronik']")
     public WebElement elektronik;

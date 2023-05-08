@@ -56,13 +56,26 @@ public class ReusableMethods {
     }
     //uyarilari kapat
 
-    public static void uyarilariKapat(){
+    public static void uyarilariKapat() {
         N11_Login n11 = new N11_Login();
-        n11.tamam.click();
-        ReusableMethods.bekle(4);
-        n11.dahaSonra.click();
-        ReusableMethods.bekle(2);
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        int sayac = 0;
+        while (sayac < 4) {
+            try {
+                ExpectedConditions.visibilityOfElementLocated((By) n11.tamam);
+                n11.tamam.click();
+                ReusableMethods.bekle(4);
 
+//WebElement marka = (WebElement) js.executeScript("return document.querySelector(/'#dengage-push-perm-slide > div > div.dn-slide-body > div > button.dn-slide-deny-btn/')");
+//clickByJavaScript(marka);
+                ExpectedConditions.visibilityOfElementLocated((By) n11.dahaSonra);
+                n11.dahaSonra.click();
+                ReusableMethods.bekle(2);
+            } catch (Exception e) {
+
+            }
+            sayac++;
+        }
     }
     //Alert ACCEPT
     public static void alertAccept(){
