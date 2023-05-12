@@ -19,5 +19,10 @@ public class N11_Kitap {
     public WebElement yorumSayisi;
     @FindBy(xpath = "//h3[@class='productName']")
     public WebElement product;
+    @FindBy(xpath = "(//div[@class='errorText'])[4]")
+    public WebElement sifreHataliMesaji;
+    @FindBy(id = "loginForm")
+    public WebElement guvenlikKoduGirMesaji;
+
 
 }

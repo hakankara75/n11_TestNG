@@ -94,7 +94,7 @@ if (sayac==6){
             sec = first;
         }
 
-        ReusableMethods.extentTestInfo("fiyat bilgileri alindi. Fiyatlarin arttigin dogrulandi");
+        ReusableMethods.extentTestInfo("fiyat bilgileri alindi. Fiyatlarin arttigi dogrulandi");
         ReusableMethods.extentTestInfo("sayfa kapatildi");
         ReusableMethods.extentRaporBitir();
         Driver.closeDriver();

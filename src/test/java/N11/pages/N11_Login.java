@@ -14,7 +14,7 @@ public class N11_Login {
     public WebElement tamam;
     @FindBy(id = "//a[@title='Giriş Yap']")
     public WebElement girisYap;
-       @FindBy(xpath = "(//button[text()='Daha Sonra'])[1]")
+       @FindBy(xpath = "(//div[@class='dn-slide-buttons horizontal']/button)[1]")
     public WebElement dahaSonra;
     @FindBy(xpath = "//a[@href='https://www.n11.com/elektronik']")
     public WebElement elektronik;
@@ -38,8 +38,6 @@ public class N11_Login {
     public WebElement urunSonucSayisi;
     @FindBy(xpath = "(//strong[text()=.])[2]")
     public WebElement urunSonucSayisiText;
-
-
 
 
 
