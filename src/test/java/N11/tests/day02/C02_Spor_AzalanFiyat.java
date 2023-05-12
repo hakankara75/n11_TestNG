@@ -27,17 +27,19 @@ public class C02_Spor_AzalanFiyat {
     @Test
     public void testName() {
         // "https://www.n11.com/" adresine git
+        ReusableMethods.extentReport();
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         N11_Spor n11Spor = new N11_Spor();
         N11_Login n11Login = new N11_Login();
-
         Driver.getDriver().get(ConfigReader.getProperty("N11Url"));
         ReusableMethods.uyarilariKapat();
+        ReusableMethods.extentTestInfo("\"https://www.n11.com/\" adresine gidildi");
 
         //giris yap
         ReusableMethods.girisYap();
         ReusableMethods.bekle(2);
         n11Login.dahaSonra.click();
+        ReusableMethods.extentTestInfo("giriş yapildi");
 
         //spor menusu ustune git
         try {
@@ -46,19 +48,22 @@ public class C02_Spor_AzalanFiyat {
         } catch (Exception e) {
 
         }
-//        WebElement marka = (WebElement) js.executeScript("return document.querySelector(/'#header > nav > ul > li:nth-child(7) > a/')");
-//        ReusableMethods.scrollToElementWithWebElement(marka);
+        ReusableMethods.extentTestInfo("spor menusu ustune gidildi");
+
 
         //spor ayakkabi tikla
         ReusableMethods.bekle(2);
         n11Spor.sporAyakkabi.click();
         ReusableMethods.bekle(2);
+        ReusableMethods.extentTestInfo("spor ayakkabi tiklandi");
 
         //akilli siralama menusunu ac
         n11Spor.akilliSiralama.click();
+        ReusableMethods.extentTestInfo("akilli siralama menusunu acildi");
 
         //artan fiyat menusunu sec
         n11Spor.artanFiyat.click();
+        ReusableMethods.extentTestInfo("artan fiyat menusunu secildi");
 
         //fiyat bilgilerini al. Fiyatlarin arttigini dogrula
         List<WebElement> fiyatlar = Driver.getDriver().findElements(By.xpath("//div[@class='priceContainer ']"));
@@ -89,7 +94,10 @@ if (sayac==6){
             sec = first;
         }
 
-
+        ReusableMethods.extentTestInfo("fiyat bilgileri alindi. Fiyatlarin arttigin dogrulandi");
+        ReusableMethods.extentTestInfo("sayfa kapatildi");
+        ReusableMethods.extentRaporBitir();
         Driver.closeDriver();
+
     }
 }

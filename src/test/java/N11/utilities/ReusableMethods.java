@@ -28,7 +28,37 @@ public class ReusableMethods {
 
     protected static ExtentReports extentReports; //Raporlamayı başlatır
     protected  static ExtentHtmlReporter extentHtmlReporter;//Raporu HTML formatında düzenler
-    protected static ExtentTest extentTest;//Tüm test aşamalarında extentTest objesi ile bilgi ekleriz
+    public static ExtentTest extentTest;//Tüm test aşamalarında extentTest objesi ile bilgi ekleriz
+
+    public static void extentReport() {
+
+            extentReports = new ExtentReports();
+            String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
+            String dosyaYolu = "TestOutput/reports/extentReport_" + tarih + ".html";
+            extentHtmlReporter = new ExtentHtmlReporter(dosyaYolu);
+            extentReports.attachReporter(extentHtmlReporter);
+
+
+            extentReports.setSystemInfo("Browser", "Chrome");
+            extentReports.setSystemInfo("Tester", "Erol");
+            extentHtmlReporter.config().setDocumentTitle("Extent Report");
+            extentHtmlReporter.config().setReportName("Smoke Test Raporu");
+        extentTest = extentReports.createTest("ExtentTest", "Test Raporu");
+
+    }
+    public static void extentTestInfo(String message) {
+        if (extentTest != null) {
+            extentTest.info(message);
+        }
+    }
+
+    public static void extentRaporBitir() {
+        if (extentReports != null) {
+            extentReports.flush();
+        }
+    }
+
+
 
     //HARD WAIT METHOD
     public static void bekle(int saniye){

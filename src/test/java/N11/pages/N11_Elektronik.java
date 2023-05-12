@@ -12,7 +12,7 @@ public class N11_Elektronik {
 
     @FindBy(xpath = "(//li[@class='catMenuItem'])[2]")
     public WebElement elektronik;
-    @FindBy(xpath = "(//a[@href='https://www.n11.com/telefon-ve-aksesuarlari'])[1]")
+    @FindBy(xpath = "(//img[@src='https://n11scdn.akamaized.net/a1/70/22/06/23/90/97/50/95/67/17/29/47/42/21865797982842474081.png'])[1]")
     public WebElement telefonAksesuar;
     @FindBy(xpath = "//img[@src='https://n11scdn.akamaized.net/a1/70/22/06/23/65/68/54/91/35/83/37/03/64/87843262666886237075.png']")
     public WebElement bilgisayar;

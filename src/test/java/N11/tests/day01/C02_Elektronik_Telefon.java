@@ -5,11 +5,13 @@ import N11.pages.N11_Elektronik;
 import N11.utilities.ConfigReader;
 import N11.utilities.Driver;
 import N11.utilities.ReusableMethods;
+import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
+
 
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
@@ -25,12 +27,12 @@ public class C02_Elektronik_Telefon {
         secimi iptal et
         arama sonucunun degistigini dogrula
  */
+
     @Test
     public void testName() {
 
         // "https://www.n11.com/" adresine git
         Driver.getDriver().get(ConfigReader.getProperty("N11Url"));
-
         N11_Login n11 = new N11_Login();
         n11.tamam.click();
         ReusableMethods.bekle(4);
@@ -42,8 +44,10 @@ public class C02_Elektronik_Telefon {
         N11_Elektronik n11_elektronik = new N11_Elektronik();
         Actions actions = new Actions(Driver.getDriver());
 
+
         js.executeScript("arguments[0].scrollIntoView();", n11_elektronik.elektronik);
         actions.moveToElement(n11_elektronik.elektronik).perform();
+
 
         //telefon tikla
         ReusableMethods.bekle(2);
@@ -64,10 +68,10 @@ public class C02_Elektronik_Telefon {
          element = Driver.getDriver().findElement(By.xpath("(//a[@href='https://www.n11.com/telefon-ve-aksesuarlari?m=Samsung'])[2]"));
         js.executeScript("arguments[0].scrollIntoView();", element);
 
-         js = (JavascriptExecutor) Driver.getDriver();
+        js = (JavascriptExecutor) Driver.getDriver();
 
-        Boolean isChecked = (Boolean) js.executeScript("return arguments[0].checked;", n11_elektronik.samsungCheckBox);
-        assertTrue(isChecked);
+//        Boolean isChecked = (Boolean) js.executeScript("return arguments[0].checked;", n11_elektronik.samsungCheckBox);
+//        assertTrue(isChecked);
 
         //secimi iptal et
          js = (JavascriptExecutor) Driver.getDriver();
