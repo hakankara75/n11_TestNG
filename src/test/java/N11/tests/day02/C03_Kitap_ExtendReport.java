@@ -5,7 +5,6 @@ import N11.pages.N11_Login;
 import N11.utilities.ConfigReader;
 import N11.utilities.Driver;
 import N11.utilities.ReusableMethods;
-import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -13,9 +12,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-import static N11.utilities.ReusableMethods.extentTest;
-
-public class C03 {
+public class C03_Kitap_ExtendReport {
     @Test
     public void testName() {
 
@@ -43,7 +40,7 @@ public class C03 {
 
         //kitap menusu ustune git
         ReusableMethods.moveToElement(n11Kitap.kitap);
-        ReusableMethods.bekle(2);
+        ReusableMethods.threadSleep(2);
         ReusableMethods.extentTestInfo("kitap menusu ustune gidildi");
 
         //Yetişkin/Hobi/oyun menusunu tiklayin
@@ -52,7 +49,7 @@ public class C03 {
 
         //akilli siralama dropdown tikla
         n11Kitap.akilliSiralama.click();
-        ReusableMethods.bekle(2);
+        ReusableMethods.threadSleep(2);
         ReusableMethods.extentTestInfo("akilli siralama dropdown tiklandi");
 
         //satis miktarini sec

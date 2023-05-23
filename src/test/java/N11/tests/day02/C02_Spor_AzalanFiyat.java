@@ -37,14 +37,14 @@ public class C02_Spor_AzalanFiyat {
 
         //giris yap
         ReusableMethods.girisYap();
-        ReusableMethods.bekle(2);
+        ReusableMethods.threadSleep(2);
         n11Login.dahaSonra.click();
         ReusableMethods.extentTestInfo("giriş yapildi");
 
         //spor menusu ustune git
         try {
             ReusableMethods.moveToElement(n11Spor.spor);
-            ReusableMethods.bekle(2);
+            ReusableMethods.threadSleep(2);
         } catch (Exception e) {
 
         }
@@ -52,9 +52,9 @@ public class C02_Spor_AzalanFiyat {
 
 
         //spor ayakkabi tikla
-        ReusableMethods.bekle(2);
+        ReusableMethods.threadSleep(2);
         n11Spor.sporAyakkabi.click();
-        ReusableMethods.bekle(2);
+        ReusableMethods.threadSleep(2);
         ReusableMethods.extentTestInfo("spor ayakkabi tiklandi");
 
         //akilli siralama menusunu ac

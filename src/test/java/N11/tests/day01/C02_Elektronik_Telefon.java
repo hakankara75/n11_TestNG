@@ -35,9 +35,9 @@ public class C02_Elektronik_Telefon {
         Driver.getDriver().get(ConfigReader.getProperty("N11Url"));
         N11_Login n11 = new N11_Login();
         n11.tamam.click();
-        ReusableMethods.bekle(4);
+        ReusableMethods.threadSleep(4);
         n11.dahaSonra.click();
-        ReusableMethods.bekle(2);
+        ReusableMethods.threadSleep(2);
 
         //elektronik menusu ustune git
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
@@ -50,7 +50,7 @@ public class C02_Elektronik_Telefon {
 
 
         //telefon tikla
-        ReusableMethods.bekle(2);
+        ReusableMethods.threadSleep(2);
         n11_elektronik.telefonAksesuar.click();
 
         //samsung tikla

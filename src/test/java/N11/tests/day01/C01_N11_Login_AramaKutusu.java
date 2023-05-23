@@ -35,27 +35,27 @@ public class C01_N11_Login_AramaKutusu {
         //arama kutusuna "fındık kreması" kelimesi girip aratin
 
         n11.aramaKutusu.sendKeys("Fındık Kreması", Keys.ENTER);
-        ReusableMethods.bekle(2);
+        ReusableMethods.threadSleep(2);
 
         //listelenen urunlerde "Fındık Kreması" oldugunu dogrula
         ReusableMethods.scrollToElementWithString("//label[@class='feed-question']");
-        ReusableMethods.bekle(5);
+        ReusableMethods.threadSleep(5);
         ReusableMethods.scrollTopByJavaScript();
         List<WebElement> findikKremasi = Driver.getDriver().findElements(By.xpath("//h3[@class='productName']"));
         int listSize = findikKremasi.size();
         int sayac=1;
        do {
-                         ReusableMethods.bekle(2);
+                         ReusableMethods.threadSleep(2);
                ReusableMethods.scrollToElementWithString("(//a[@class='plink'])[" + sayac + "]");
                if (sayac>140){
-                   ReusableMethods.bekle(7);
+                   ReusableMethods.threadSleep(7);
                    ReusableMethods.scrollToElementWithString("(//a[@class='plink'])[" + sayac + "]");
                }
            sayac++;
        }while (sayac<listSize);
 
 
-        ReusableMethods.bekle(3);
+        ReusableMethods.threadSleep(3);
 
         for (WebElement find : findikKremasi) {
             System.out.println(find.getText());

@@ -23,7 +23,7 @@ public class C03_EvYasam {
         //ev/yasam menusu ustune git
         N11_EvYasam n11EvYasam = new N11_EvYasam();
         Actions actions = new Actions(Driver.getDriver());
-        ReusableMethods.bekle(2);
+        ReusableMethods.threadSleep(2);
 
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         WebElement menu = Driver.getDriver().findElement(By.xpath("(//a[@href='https://www.n11.com/ev-yasam'])[1]"));

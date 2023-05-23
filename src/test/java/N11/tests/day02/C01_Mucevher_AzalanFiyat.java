@@ -38,7 +38,7 @@ public class C01_Mucevher_AzalanFiyat<retryAnalyzer> {
 
         //giris yap
         ReusableMethods.girisYap();
-        ReusableMethods.bekle(2);
+        ReusableMethods.threadSleep(2);
         ReusableMethods.extentTestInfo("giris yapildi");
 
         //mucevher menusu ustune git

@@ -40,15 +40,15 @@ public class C04_Moda {
 
         //giris yap
         ReusableMethods.girisYap();
-        ReusableMethods.bekle(2);
+        ReusableMethods.threadSleep(2);
 
         //moda menusu ustune git
         ReusableMethods.moveToElement(Driver.getDriver().findElement(By.xpath("(//a[@href='https://www.n11.com/giyim-ayakkabi'])[1]")));
-        ReusableMethods.bekle(2);
+        ReusableMethods.threadSleep(2);
 
         //ayakkabi/canta menusune tikla
         ReusableMethods.clickByJavaScript(Driver.getDriver().findElement(By.xpath("//a[@title='Ayakkabı & Çanta']//img")));
-        ReusableMethods.bekle(2);
+        ReusableMethods.threadSleep(2);
 
         //Marka menusunu ac
         WebElement icerik = (WebElement) js.executeScript("return document.querySelector('#contentListing > div > div.listingHolder > div.filterArea > section:nth-child(10) > h2')");
@@ -57,10 +57,10 @@ public class C04_Moda {
         WebElement marka = (WebElement) js.executeScript("return document.querySelector('#contentListing > div > div.listingHolder > div.filterArea > section:nth-child(7) > h2')");
         ReusableMethods.scrollToElementWithWebElement(marka);
         marka.click();
-        ReusableMethods.bekle(2);
+        ReusableMethods.threadSleep(2);
 
         ReusableMethods.pageDown();
-        ReusableMethods.bekle(2);
+        ReusableMethods.threadSleep(2);
         //Benetton markasini sec, secildigini test et
         WebElement benettonBul = null;
         int attempts = 0;
