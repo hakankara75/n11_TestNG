@@ -548,4 +548,29 @@ return element;
         return text;
     }
 
+    //Tüm Sayfa ScreenShot parametreli
+    public static void tumSayfaResmi(String name) {
+        String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
+        String dosyaYolu = "TestOutput/screenshot/screenshot" +tarih+name+ ".png";
+        TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
+        try {
+            FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE), new File(dosyaYolu));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Bu metot Action class kullanarak bir webelementin ustune gidip bekler
+     * @param element yerine webelement'in locate koyulmalidir
+     */
+    public static void moveToElementWithAction(WebElement element){
+        Actions action = new Actions(Driver.getDriver());
+        action.moveToElement(element).perform();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
