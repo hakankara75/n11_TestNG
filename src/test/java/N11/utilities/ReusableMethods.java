@@ -101,10 +101,10 @@ extentHtmlReporter.config().setAutoCreateRelativePathMedia(true);//resim eklemek
             try {
                 ExpectedConditions.visibilityOfElementLocated((By) n11.tamam);
                 n11.tamam.click();
-                ReusableMethods.threadSleep(4);
+                ReusableMethods.threadSleep(5);
 
-                ExpectedConditions.visibilityOfElementLocated((By) n11.dahaSonra);
-                n11.dahaSonra.click();
+                WebElement element = ReusableMethods.webelementJavaScript("document.querySelector('#dengage-push-perm-slide > div > div.dn-slide-body > div > button.dn-slide-deny-btn')");
+                                ReusableMethods.clickByJavaScript(element);
                 ReusableMethods.threadSleep(2);
             } catch (Exception e) {
 
@@ -491,7 +491,7 @@ extentHtmlReporter.config().setAutoCreateRelativePathMedia(true);//resim eklemek
         js.executeScript("arguments[0].selectedIndex = "+str+"; arguments[0].dispatchEvent(new Event('change'))", webElement);
     }
 
-    /** Bu metot ile select objesinin indexi ile secim yapilir
+    /** Bu metot ile select objesinin value'su ile secim yapilir
      *
      * @param webElement elementin locatidir
      * @param str   gonderilecek value degeridir
@@ -517,12 +517,6 @@ extentHtmlReporter.config().setAutoCreateRelativePathMedia(true);//resim eklemek
         }
 
     }
-    //*[contains(@name,'q')]
-    //*[contains(@title,'Ara')]
-    //*[contains(@maxlength,'2048')]
-        //*[contains(@maxlength,'20')]
-      // * [cointains ( @Attribute = ’Value’) ]
-
 
     /**
      * Bu metot ile bir elementin tag'ı ve texti verilerek locate alınır
@@ -549,7 +543,7 @@ return element;
     }
 
     //Tüm Sayfa ScreenShot parametreli
-    public static void tumSayfaResmi(String name) {
+    public static String tumSayfaResmi(String name) {
         String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
         String dosyaYolu = "TestOutput/screenshot/screenshot" +tarih+name+ ".png";
         TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
@@ -558,6 +552,7 @@ return element;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        return tarih;
     }
 
     /**

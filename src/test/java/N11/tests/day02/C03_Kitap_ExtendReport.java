@@ -18,8 +18,6 @@ public class C03_Kitap_ExtendReport {
 
         // "https://www.n11.com/" adresine git
         ReusableMethods.extentReport();
-
-        ReusableMethods.extentRaporBitir();
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         N11_Kitap n11Kitap = new N11_Kitap();
         N11_Login n11Login = new N11_Login();
