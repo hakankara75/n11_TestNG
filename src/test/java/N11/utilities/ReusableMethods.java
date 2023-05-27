@@ -137,6 +137,18 @@ extentHtmlReporter.config().setAutoCreateRelativePathMedia(true);//resim eklemek
     }
 
     /**
+     * Bu metot bir elemente sag click yapar
+     * @param element ustunde sag click yapilacak webelement dir
+     */
+    public void sagClick(WebElement element){
+
+        Actions action = new Actions(Driver.getDriver());
+        action.contextClick(element).perform();
+
+    }
+
+
+    /**
      bu metot ile dropdown menude yazan bir text secilir
      @param ddm girilmesi gereken menunun locatidir
      @param secenek dropdown menunde yazan gorun textin string halidir
@@ -293,9 +305,8 @@ extentHtmlReporter.config().setAutoCreateRelativePathMedia(true);//resim eklemek
 
     }
 
-    /**
+    /**  bu metot sayfayi girilen elemente goturur
      * @param element girilmesi gereken locatidir
-    bu metot sayfayi girilen elemente goturur
      */
     public static void scrollToElementWithWebElement(WebElement element) {
         WebElement bottom = element;
