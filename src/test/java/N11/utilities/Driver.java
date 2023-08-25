@@ -67,3 +67,32 @@ public class Driver {
     }
 
 }
+/*
+public static WebDriver getDriver() {
+        /*
+            WebDriverManager silip Driver olusturmak icin bu constructer kullanilir
+
+        if (driver == null) {
+                switch (ConfigReader.getProperty("browser")) {
+                case "chrome":
+                driver = new ChromeDriver();
+                break;
+                case "edge":
+                driver = new EdgeDriver();
+                break;
+                case "headless-chrome":
+                    ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.setHeadless(true);
+                driver = new ChromeDriver(chromeOptions);
+                break;
+default:
+        driver = new ChromeDriver();
+        }
+
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        }
+
+        return driver;
+        }
+ */

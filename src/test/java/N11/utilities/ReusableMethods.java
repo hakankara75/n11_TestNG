@@ -456,7 +456,6 @@ extentHtmlReporter.config().setAutoCreateRelativePathMedia(true);//resim eklemek
      *  JavaScript ile webelement olusturma
      * @param javascriptYolu internet sitesinden sag klik ile JS yolunu kopyala ile alınan metin olacak
      */
-
     public static WebElement webelementJavaScript(String javascriptYolu) {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         WebElement webElement = (WebElement) js.executeScript("return "+javascriptYolu+"");
